@@ -1,0 +1,18 @@
+Preis pro Einheit = 
+/*  Beispiel für eine berechnete Spalte */
+    DIVIDE(
+        Fakten[Umsatz]; 
+        Fakten[Einheiten]
+        )
+
+
+Preis pro Einheit = DIVIDE(Fakten[Umsatz]; Fakten[Einheiten])
+
+
+Fakten Kopie = 
+
+VAR Schritt1_KopieErstellen = Fakten 
+VAR Schritt2_SpalteHinzufuegen = 
+	ADDCOLUMNS(Schritt1_KopieErstellen; "Jahr"; YEAR([Datum]))
+VAR Schritt3_Filtern
+RETURN Schritt2_SpalteHinzufuegen 
